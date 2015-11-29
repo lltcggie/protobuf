@@ -84,8 +84,13 @@ endforeach()
 
 # Export configuration
 
+set(_protobuf_cmake_config_DESTINATION "lib/cmake/protobuf")
+if(WIN32)
+    set(_protobucmake_f_config_DESTINATION "cmake")
+endif()
+
 install(EXPORT protobuf-targets
-  DESTINATION "lib/cmake/protobuf"
+  DESTINATION ${_protobuf_cmake_config_DESTINATION}
   COMPONENT protobuf-export)
 
 configure_file(protobuf-config.cmake.in
